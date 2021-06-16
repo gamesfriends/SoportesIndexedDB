@@ -30,19 +30,22 @@
             <div class="form-labels">
                 <div class="field">
                     <label class="field-label" for="dateSup">Fecha</label>
-                    <input class="field-frame" type="text" id="dateSup">
+                    <input class="field-frame" type="text" id="dateSup" disabled>
                 </div>
                 <div class="field">
                     <label class="field-label" for="client">Cliente</label>
-                    <input class="field-frame" type="text" id="client">
+                    <input class="field-frame" type="text" id="client" disabled>
                 </div>
                 <div class="field">
                     <label class="field-label" for="serialNumber">Numero de serie</label>
-                    <input class="field-frame" type="text" id="serialNumber">
+                    <input class="field-frame" type="text" id="serialNumber" disabled>
                 </div>
                 <div class="field">
                     <label class="field-label" for="supportNumber">Numero de soporte</label>
-                    <input class="field-frame" type="text" id="supportNumber">
+                    <input class="field-frame" type="text" id="supportNumber" disabled>
+                </div>
+                <div class="field">
+                    <button id="btnNew" class="btnNew">Nuevo registro</button>
                 </div>
                 <div class="field">
                     <button id="btnCreate" class="btnCreate">Cargar registro</button>
@@ -50,6 +53,13 @@
             </div>
         </div>
 
+        <footer>
+            <div class="statusBar">
+                <p id="statusBar-text"></p>
+            </div>
+        </footer>
+
+        <script src="js/create.js"></script>
     </body>
 
 </html>

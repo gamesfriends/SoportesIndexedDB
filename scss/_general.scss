@@ -2,6 +2,13 @@ $color_back_gen: #ffffff !default;
 $color_text_gen: #000000 !default;
 $color_text_links: #8d764c;
 
+$color_back_statusBar: #665d5d !default;
+$color_text_statusBar: #000000 !default;
+* {
+    margin: 0;
+    padding: 0;
+}
+
 body {
     background-color: $color_back_gen;
     color: $color_text_gen;
@@ -9,4 +16,15 @@ body {
 
 .mainMenu-item_link {
     color: $color_text_links;
+}
+
+.statusBar {
+    position: fixed;
+    bottom: 0;
+    background-color: $color_back_statusBar;
+    color: $color_text_statusBar;
+    height: 2em;
+    width: 100%;
+    display: flex;
+    align-items: center;
 }
