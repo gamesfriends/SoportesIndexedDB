@@ -1,0 +1,6 @@
+@use 'general' with (
+    $color_back_gen: #333333,
+    $color_text_gen: #faebd7
+);
+
+@use 'formCreate';

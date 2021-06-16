@@ -1,0 +1,12 @@
+$color_back_gen: #ffffff !default;
+$color_text_gen: #000000 !default;
+$color_text_links: #8d764c;
+
+body {
+    background-color: $color_back_gen;
+    color: $color_text_gen;
+}
+
+.mainMenu-item_link {
+    color: $color_text_links;
+}
