@@ -1,3 +1,17 @@
+.secForm {
+    width: 100%;
+}
+
+.form {
+    background-color: #6d6d6d;
+    width: 25%;
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    border-radius: 30px;
+    padding: 1em;
+}
+
 .field {
     display: grid;
     grid-template-columns: 200px 200px;
@@ -14,3 +28,16 @@
     padding: 0.5em;
 }
 
+.field-frame {
+    border: none;
+    background-color: #6d6d6d;
+    color: azure;
+}
+
+.field-frame-noActive {
+    border-bottom: 1px solid #6d6d6d;
+}
+
+.field-frame-active {
+    border-bottom: 1px solid #444141;
+}
