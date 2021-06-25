@@ -1,0 +1,39 @@
+@import 'variables-table-material';
+
+.tableContainer {
+    background-color: $color_back_container;
+    color: $color_text_table;
+    width: 100%;
+    padding: 2em 0;
+    display: flex;
+    align-items: center;
+}
+
+.tableData {
+    background-color: $color_back_table;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 5px;
+    border-collapse: collapse;
+    cursor: pointer;
+}
+
+.tableData-th1, .tableData-th2, .tableData-th3, .tableData-th4 {height: 2.8em}
+
+.tableData-th1{width: 90px;}.tableData-th2{width: 390px;}.tableData-th3{width: 120px;}.tableData-th4{width: 120px;}
+
+.tableData-row .tabledata-cell {
+    height: 2em;
+}
+
+.borderRow {
+    border-bottom: 1px solid $color_border_rows;
+}
+
+.center {
+    text-align: center;
+}
+
+.tableData-row:hover {
+    background-color: $color_hover_row;
+}

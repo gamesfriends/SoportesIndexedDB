@@ -5,10 +5,10 @@ const dateSupInput = document.getElementById("dateSup");
 const clientInput = document.getElementById("client");
 const serialNumberInput = document.getElementById("serialNumber");
 const supportNumberInput = document.getElementById("supportNumber");
-const orderNumber = document.getElementById("orderNumber");
-const typeOfJob = document.getElementById("typeOfJob");
-const observations = document.getElementById("observations");
-const finalized = document.getElementById("finalized");
+const orderNumberInput = document.getElementById("orderNumber");
+const typeOfJobInput = document.getElementById("typeOfJob");
+const observationsInput = document.getElementById("observations");
+const statusSupportInput = document.getElementById("statusSupport");
 
 const IDBRequest = indexedDB.open("soportes", 1);
 
@@ -18,49 +18,48 @@ function activeNoActive (active) {
         clientInput.classList.replace("field-frame-noActive", "field-frame-active");
         serialNumberInput.classList.replace("field-frame-noActive", "field-frame-active");
         supportNumberInput.classList.replace("field-frame-noActive", "field-frame-active");
-        orderNumber.classList.replace("field-frame-noActive", "field-frame-active");
-        typeOfJob.classList.replace("field-frame-noActive", "field-frame-active");
-        observations.classList.replace("field-frame-noActive", "field-frame-active");
-        finalized.classList.replace("field-frame-noActive", "field-frame-active");
+        orderNumberInput.classList.replace("field-frame-noActive", "field-frame-active");
+        typeOfJobInput.classList.replace("field-frame-noActive", "field-frame-active");
+        observationsInput.classList.replace("field-frame-noActive", "field-frame-active");
+        statusSupportInput.classList.replace("field-frame-noActive", "field-frame-active");
 
         dateSupInput.disabled = false;
         clientInput.disabled = false;
         serialNumberInput.disabled = false;
         supportNumberInput.disabled = false;
-        orderNumber.disabled = false;
-        typeOfJob.disabled = false;
-        observations.disabled = false;
-        finalized.disabled = false;
+        orderNumberInput.disabled = false;
+        typeOfJobInput.disabled = false;
+        observationsInput.disabled = false;
+        statusSupportInput.disabled = false;
     } else {
         dateSupInput.classList.replace("field-frame-active", "field-frame-noActive");
         clientInput.classList.replace("field-frame-active", "field-frame-noActive");
         serialNumberInput.classList.replace("field-frame-active", "field-frame-noActive");
         supportNumberInput.classList.replace("field-frame-active", "field-frame-noActive");
-        orderNumber.classList.replace("field-frame-active", "field-frame-noActive");
-        typeOfJob.classList.replace("field-frame-active", "field-frame-noActive");
-        observations.classList.replace("field-frame-active", "field-frame-noActive");
-        finalized.classList.replace("field-frame-active", "field-frame-noActive");
+        orderNumberInput.classList.replace("field-frame-active", "field-frame-noActive");
+        typeOfJobInput.classList.replace("field-frame-active", "field-frame-noActive");
+        observationsInput.classList.replace("field-frame-active", "field-frame-noActive");
+        statusSupportInput.classList.replace("field-frame-active", "field-frame-noActive");
 
         dateSupInput.disabled = true;
         clientInput.disabled = true;
         serialNumberInput.disabled = true;
         supportNumberInput.disabled = true;
-        orderNumber.disabled = true;
-        typeOfJob.disabled = true;
-        observations.disabled = true;
-        finalized.disabled = true;
+        orderNumberInput.disabled = true;
+        typeOfJobInput.disabled = true;
+        observationsInput.disabled = true;
+        statusSupportInput.disabled = true;
 
         dateSupInput.value = "";
         clientInput.value = "";
         serialNumberInput.value = "";
         supportNumberInput.value = "";
-        orderNumber.value = "";
-        typeOfJob.value = "";
-        observations.value = "";
-        finalized.value = "";
-        }
-}
-
+        orderNumberInput.value = "";
+        typeOfJobInput.value = "";
+        observationsInput.value = "";
+        statusSupportInput.value = "";
+    }
+};
 
 IDBRequest.addEventListener("upgradeneeded", () => {
     const db = IDBRequest.result;
@@ -78,44 +77,33 @@ IDBRequest.addEventListener("error", () => {
 });
 
 document.getElementById("btnNew").addEventListener("click", () => {
-
     activeNoActive(true);
-
     statusBar.innerHTML = "Cargando nuevo registro";
 });
 
 document.getElementById("btnCreate").addEventListener("click", () => {
-    let dateSup = dateSupInput.value;
-    let client = clientInput.value;
-    let serialNumber = serialNumberInput.value;
-    let supportNumber = supportNumberInput.value;
+    let dateSupCreate = dateSupInput.value;
+    let clientCreate = clientInput.value;
+    let serialNumberCreate = serialNumberInput.value;
+    let supportNumberCreate = supportNumberInput.value;
+    let orderNumberCreate = orderNumberInput.value;
+    let typeOfJobCreate = typeOfJobInput.value;
+    let observationsCreate = observationsInput.value;
+    let statusSupportCreate = statusSupportInput.value;
 
-    //let dateSup = document.getElementById("dateSup").value;
-    //let client = document.getElementById("client").value;
-    //let serialNumber = document.getElementById("serialNumber").value;
-    //let supportNumber = document.getElementById("supportNumber").value;
-
-    if (dateSup.length > 0) {
-        if (document.querySelector(".posible") != undefined) {
-            if (confirm("Hay elementos sin guardar: ¿Desea continuar?")) {
-                addObjeto({
-                    dateSup: dateSup,
-                    client: client,
-                    serialNumber: serialNumber,
-                    supportNumber: supportNumber
-                });
-                statusBar.innerHTML = "Registro agregado correctamente";
-            }
-        } else {
-            addObjeto({
-                dateSup: dateSup,
-                client: client,
-                serialNumber: serialNumber,
-                supportNumber: supportNumber
-            });
-            statusBar.innerHTML = "Registro agregado correctamente";
-        }
+    if (dateSupCreate.length > 0) {
+        addObjeto({
+            dateSup: dateSupCreate,
+            client: clientCreate,
+            serialNumber: serialNumberCreate,
+            supportNumber: supportNumberCreate,
+            orderNumber: orderNumberCreate,
+            typeOfJob: typeOfJobCreate,
+            observations: observationsCreate,
+            statusSupport: statusSupportCreate
+        });
     }
+    statusBar.innerHTML = "Registro agregado correctamente";
     activeNoActive(false);
 });
 
@@ -123,7 +111,7 @@ const addObjeto = objeto => {
     const IDBData = getIDBdata("readwrite");
     IDBData[0].add(objeto);
     IDBData[1].addEventListener("complete", () => {
-        console.log("Objeto agregado correctamente");
+        //console.log("Objeto agregado correctamente");
     });
 };
 
